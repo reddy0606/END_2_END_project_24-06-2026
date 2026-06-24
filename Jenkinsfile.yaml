@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Code') {
+            steps {
+                git branch: 'feature/login',
+                url: 'https://github.com/reddy0606/END_2_END_project_24-06-2026.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Create Reports Folder') {
+            steps {
+                bat 'if not exist reports mkdir reports'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'pytest --html=reports/report.html'
+            }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+            }
+        }
+    }
+}
