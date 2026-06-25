@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 venv/
 reports/
+.pytest_cache/
+.idea/
+.vscode/
