@@ -11,19 +11,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
         stage('Create Reports Folder') {
             steps {
-                bat 'if not exist reports mkdir reports'
+                sh 'mkdir -p reports'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest --html=reports/report.html'
+                sh 'pytest --html=reports/report.html'
             }
         }
 
