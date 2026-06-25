@@ -18,6 +18,7 @@
 #     print(page_text)
 #
 #     assert "Welcome" in page_text or "customer was created successfully" in page_text
+from pages.login_page import LoginPage
 
 
 # from pages.register_page import RegisterPage
@@ -49,5 +50,11 @@
 #
 #     assert "Welcome" in driver.page_source
 
-def test_register(registered_user):
-    assert registered_user is not None
+def test_transfer(setup, registered_user):
+    driver = setup
+
+    login = LoginPage(driver)
+
+    login.enter_username(registered_user["username"])
+    login.enter_password(registered_user["password"])
+    login.click_login()

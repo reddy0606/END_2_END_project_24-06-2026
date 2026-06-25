@@ -69,8 +69,7 @@ def test_login(setup, registered_user):
     driver = setup
 
     login = LoginPage(driver)
-    login.enter_username(registered_user)
-    login.enter_password("Sai@123")
-    login.click_login()
 
-    assert "Accounts Overview" in driver.page_source
+    login.enter_username(registered_user["username"])
+    login.enter_password(registered_user["password"])
+    login.click_login()

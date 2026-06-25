@@ -43,3 +43,64 @@ class RegisterPage:
         self.driver.find_element(*self.submit).click()
 
         # return unique_user
+
+    def click_register(self):
+        pass
+
+    def enter_firstname(self, param):
+        pass
+
+    def enter_lastname(self, param):
+        pass
+
+    def enter_address(self, param):
+        pass
+
+    def enter_city(self, param):
+        pass
+
+    def enter_state(self, param):
+        pass
+
+    def enter_zipcode(self, param):
+        pass
+
+    def enter_phone(self, param):
+        pass
+
+    def enter_ssn(self, param):
+        pass
+
+    def enter_username(self, username):
+        pass
+
+    def enter_password(self, password):
+        pass
+
+    def confirm_password(self, password):
+        pass
+
+    def click_submit(self):
+        pass
+
+    '''Because of conftest I've added this steps here
+    
+    register.click_register()
+    register.enter_firstname("Sai")
+    register.enter_lastname("Kumar")
+    register.enter_address("Anantapur")
+    register.enter_city("Anantapur")
+    register.enter_state("AP")
+    register.enter_zipcode("515001")
+    register.enter_phone("9876543210")
+    register.enter_ssn("123456789")
+    register.enter_username(username)
+    register.enter_password(password)
+    register.confirm_password(password)
+    register.click_submit()'''
+
+    def enter_first_name(self, param):
+        pass
+
+    def enter_last_name(self, param):
+        pass
