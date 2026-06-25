@@ -9,9 +9,14 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Setup Virtual Environment') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                '''
             }
         }
 
@@ -23,7 +28,10 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'pytest --html=reports/report.html'
+                sh '''
+                    . venv/bin/activate
+                    pytest --html=reports/report.html
+                '''
             }
         }
 
